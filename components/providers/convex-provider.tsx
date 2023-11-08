@@ -15,6 +15,7 @@ export const ConvexClientProvider = ({
   return (
     <ClerkProvider
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
+      afterSignInUrl="/dashboard"  // This is optional and based on your previous query
     >
       <ConvexProviderWithClerk
         useAuth={useAuth}

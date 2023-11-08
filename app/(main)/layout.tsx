@@ -2,6 +2,8 @@
 
 import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
+import Navbar from "@/components/navbar";
+import Sidebar from "@/components/sidebar";
 
 import { Spinner } from "@/components/spinner";
 import { SearchCommand } from "@/components/search-command";
@@ -17,7 +19,14 @@ const MainLayout = ({
 
   if (isLoading) {
     return (
-      <div className="h-full flex items-center justify-center">
+      <div className="h-full relative">
+        <div className="hidden h-full md:flex md:flex-col md:w-72 md:fixed md:insert-y-0 z-[80] bg-gray-900">
+          <Sidebar />
+        </div>
+        <main className="md:pl-72">
+          <Navbar />
+          {children}
+        </main>
         <Spinner size="lg" />
       </div>
     );
